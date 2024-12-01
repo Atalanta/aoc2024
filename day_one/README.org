@@ -10,3 +10,13 @@ Run the tests with:
 #+begin_src shell
   clj -M:spec -f d
 #+end_src
+
+To be able to run tests in the Cider repl:
+
+#+begin_src emacs-lisp
+  (setq cider-clojure-cli-aliases ":spec")
+#+end_src
+
+Then when you jack in to the project, the =spec= alias will be in
+scope, and the =speclj= library and the specs will be om the class
+path.

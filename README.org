@@ -1,0 +1,7 @@
+* Advent of Code 2025
+
+This year I will be solving Advent of Code in Clojure.
+
+In keeping with the guidelines, I will not be providing my input, nor
+will I provide the text of the puzzle.  I will simply provide my
+thoughts on the solution / implementation, and the solution and tests.
