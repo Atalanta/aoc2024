@@ -1,0 +1,12 @@
+* Advent of Code Day One
+
+This task is effectively a list processing task.  Given two unsorted
+lists, we need to sort the lists, and then do a pairwise comparison of
+each elemet of the two lists, find the difference between the two
+numbers, and then sum the differences.
+
+Run the tests with:
+
+#+begin_src shell
+  clj -M:spec -f d
+#+end_src
