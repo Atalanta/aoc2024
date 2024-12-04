@@ -17,6 +17,9 @@ To be able to run tests in the Cider repl:
   (setq cider-clojure-cli-aliases ":spec")
 #+end_src
 
+#+RESULTS:
+: :spec
+
 Then when you jack in to the project, the =spec= alias will be in
 scope, and the =speclj= library and the specs will be om the class
 path.

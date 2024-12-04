@@ -1,17 +1,31 @@
 (ns day-one-spec
- (:require [speclj.core :refer :all]
-           [day-one :refer :all]))
+  (:require [speclj.core :refer :all]
+            [day-one :refer :all]
+            [aocifetch.core :as ifetch]))
 
-(describe "Location difference finder"
- (it "computes total difference between two lists of locations"
-   (should= 6 (sum-of-differences '(5 3 9) '(7 1 3)))
-   (should= 14 (sum-of-differences '(2 4 6) '(6 8 12))))
- 
- (context "when performing initial sort"
-   (it "produces a sorted list of paired locations"
-     (should= '((1 2) (2 3) (3 4)) 
-              (generate-pairs '(3 1 2) '(3 2 4)))))
- 
- (context "when calculating the difference between location pairs"
-   (it "finds the absolute difference regardless of order and sign"
-     (should= 4 (calculate-difference '(7 3))))))
+(describe "Advent of Code Day 1 solution"
+  (it "solves correctly for the puzzle example data"
+    (with-redefs [ifetch/fetch-input (fn [_ _] "3   4\n4   3\n2   5\n1   3\n3   9\n3   3\n")]
+      (should= 11 (solve-the-puzzle []))))
+  (it "solves correctly for the modified example data"
+    (with-redefs [ifetch/fetch-input (fn [_ _] "3   4\n4   3\n2   6\n1   3\n3   9\n3   3\n")]
+      (should= 12 (solve-the-puzzle []))))
+  (it "calculates location differences"
+    (should= [2 1 0 1 2 5]
+             (location-differences [1 2 3 3 3 4] [3 3 3 4 5 9])))
+  
+  (context "when parsing the input data"
+    (it "creates location lists for each team"
+      (should= [[3 4 2 1 3 3] [4 3 5 3 9 3]]
+               (parse-input-data "3   4\n4   3\n2   5\n1   3\n3   9\n3   3\n"))
+      (should= [[4 5 3 2 4 4] [4 3 5 3 9 3]]
+               (parse-input-data "4   4\n5   3\n3   5\n2   3\n4   9\n4   3\n")))
+    (it "extracts location"
+      (should= [3 4 4 3 2 5 1 3 3 9 3 3]  (extract-location "3   4\n4   3\n2   5\n1   3\n3   9\n3   3\n"))
+      )
+
+    (it "allocates locations to teams"
+      (should= [[3 4 2 1 3 3] [4 3 5 3 9 3]]
+               (allocate-locations [3 4 4 3 2 5 1 3 3 9 3 3]))
+      )))
+

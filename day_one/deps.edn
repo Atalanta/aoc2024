@@ -1,4 +1,9 @@
-{:aliases
+{:deps {clj-http/clj-http {:mvn/version "3.13.0"}
+        atalanta/aocifetch
+        {:git/url "https://github.com/Atalanta/aocifetch"
+         :git/tag "v0.1.0"
+         :git/sha "362c1c1bdf47b0fdf1c6b591e355e326d0590004"}}
+ :aliases
  {:spec
   {:main-opts ["-m" "speclj.main" "-c"]
    :extra-deps {speclj/speclj {:mvn/version "3.5.0"}}

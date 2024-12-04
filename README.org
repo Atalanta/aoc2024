@@ -5,3 +5,16 @@ This year I will be solving Advent of Code in Clojure.
 In keeping with the guidelines, I will not be providing my input, nor
 will I provide the text of the puzzle.  I will simply provide my
 thoughts on the solution / implementation, and the solution and tests.
+
+** Getting the input
+
+I wrote a little library for fetching the input for the puzzles:
+[[https://github.com/Atalanta/aocifetch][AoCifetch]] - to use it, add the following to =deps.edn=:
+
+#+begin_src clojure
+{:deps
+ {atalanta/aocifetch
+  {:git/url "https://github.com/Atalanta/aocifetch"
+   :git/tag "v0.1.0"
+   :git/sha "362c1c1bdf47b0fdf1c6b591e355e326d0590004"}}}
+#+end_src
